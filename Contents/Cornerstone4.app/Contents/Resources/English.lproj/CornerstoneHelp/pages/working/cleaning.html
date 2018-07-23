@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<link href="../../stylesheets/style.css?ver=0.11" rel="stylesheet" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cleaning a Working Copy</title>
+</head>
+<body>
+
+    <nav>
+      <div class="fixed-width centered">
+        <a class="logotype" href="/index.php">
+          <img class="cornerstone-logo" src="/cornerstone/images/app-icon-3@2x.png">
+          <!--<img class="assembla-shield" src="/images/assembla-shield.svg">-->
+          <span>CORNERSTONE 4</span></a>
+        <a href="/store">BUY</a>
+        <a href="/support">SUPPORT</a>
+        <a href="/blog">RELEASE NOTES</a>
+        <!--<a class="assembla-home" href="https://assembla.com" target="_blank">Assembla Home Page<img src="/cornerstone/images/back-icon.png"></a>-->
+        <a title="Assembla Home Page" class="assembla-home" href="https://assembla.com" target="_blank"><img class="assembla-logo" src="/images/assembla-logo.svg"></a>
+      </div>
+    </nav>
+
+	<div id="navbar">
+		<a id="home" href="index.html"></a>
+	</div>
+
+	<h1>Cleaning a Working Copy</h1>
+	<p>Subversion locks a working copy whenever it performs operations such as commits, updates, merges etc. Normally, these locks are released when an operation completes, regardless of the outcome of the operation.</p>
+	<p>If Cornerstone is unable to complete an operation due to interruption (e.g. when force-quit) then the locks will not be released. As a result, future attempts to commit, update merge etc. will fail with an error.</p>
+	<p>The <span class="uiref">Clean</span> command can be used to recover from such situations by cleaning up any unreleased locks in a working copy. The command is not context-sensitive and always cleans the entire working copy.</p>
+  
+  <p>To clean a working copy:</p>
+  
+  <div class="task">
+  	<ol>
+  		<li>
+  			<p>Select the working copy to relocate in the source list.</p>
+  		</li>
+  		<li>
+  			<p>Select the <span class="uiref">Clean</span> item in the <span class="uiref">Working Copy</span> menu.</p>
+  		</li>
+  	</ol>
+  </div>
+
+	<p>Any locks held by the working copy are released and interrupted operations are completed such that the working copy has a known good state.</p>
+	<div class="note">
+		<p>The <span class="uiref">Clean</span> command does not clean a working copy&rsquo;s externals. You will need to use the <code>svn cleanup</code> command in Terminal to clean externals.</p>
+	</div>
+
+    
+    <div id="footer">
+      <p class="small">
+        &copy; Assembla Inc. 2007 - 2018<br/>
+        <a href="https://www.assembla.com">www.assembla.com</a>
+      </p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<link href="../../stylesheets/style.css?ver=0.11" rel="stylesheet" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Selection-Dependent Functions</title>
+</head>
+<body>
+
+    <nav>
+      <div class="fixed-width centered">
+        <a class="logotype" href="/index.php">
+          <img class="cornerstone-logo" src="/cornerstone/images/app-icon-3@2x.png">
+          <!--<img class="assembla-shield" src="/images/assembla-shield.svg">-->
+          <span>CORNERSTONE 4</span></a>
+        <a href="/store">BUY</a>
+        <a href="/support">SUPPORT</a>
+        <a href="/blog">RELEASE NOTES</a>
+        <!--<a class="assembla-home" href="https://assembla.com" target="_blank">Assembla Home Page<img src="/cornerstone/images/back-icon.png"></a>-->
+        <a title="Assembla Home Page" class="assembla-home" href="https://assembla.com" target="_blank"><img class="assembla-logo" src="/images/assembla-logo.svg"></a>
+      </div>
+    </nav>
+
+	<div id="navbar">
+		<a id="home" href="index.html"></a>
+		<a id="next" href="menu-alternates.html"></a>
+	</div>
+
+  <h1>Shelving &amp; Checkpointing Guide</h1>
+  <p>Shelving and Checkpointing are new features introduced in Cornerstone 4.0. They let you save the effects of your work to a temporary storage and continue working on your working copy. Later, you can use that saved work by patching your working copy with the contents of your shelf or checkpoint.</p>
+  <p>Shelving and Checkpointing are similar features. The difference between them is what your working copy will look like after you make a shelf or a checkpoint. A checkpoint will save your modified working copy files into a shelf, but your changes will remain in the working copy. Shelving, on the other hand, will revert your changes, so your working copy will be missing all modified files (they will be saved in a checkpoint though).</p>
+  <h2>Basic Usage</h2>
+  <p>In order to be able to use Shelving and Checkpointing, you need to have a working copy checked out in Cornerstone. You can access the new features either using the Working Copy menu (Fig.1) or a right button menu on a working copy (Fig.2).</p>
+  <p><img src="/images/note-images/image9.png"><br>
+  <em>Figure 1: Working copy menu with Shelve and Unshelve</em></p>
+  <p><img src="/images/note-images/image4.png"><br>
+  <em>Figure 2: </em>Left<em> menu of Working copy – Shelve and Unshelve visible</em></p>
+  <p>Shelving and unshelving options can be used only on your local working copy, not on a remote repository. There is also a possibility to shelve a single file or a group of files. It is illustrated in a Figure 2.a.</p>
+  <p><img src="/images/note-images/image2.png"><br>
+  <em>Figure 2.a: Ability to shelve a file directly from a Working Copy Browser</em></p>
+  <p>If you select a file or files that are modified, added, or deleted, you can shelve them directly. They will appear as selected in Shelving window (Figures 2.b and 3). You cannot, however, select a directory or non-text file to shelve. So, the&nbsp;Shelve changes&nbsp;option will be grayed out on images or directories.</p>
+  <p><img src="/images/note-images/image6.png"><br>
+  Figure 2.b: Items selected after a direct selection shelve</p>
+  <h2>Shelving &amp; Checkpointing</h2>
+  <p><img src="/images/note-images/image1.png"><br>
+  <em>Figure 3: Shelve items</em></p>
+  <p>Figure 3 shows a window that is visible after the Shelve… command is clicked. In the top of a window we have a tab bar that lets us choose if we want to make a Shelf (Shelve and revert option), or a Checkpoint (Save a checkpoint (do not revert) ).</p>
+  <p>Below that we have an option to choose a shelf. We can either create a new one (default option) and enter a new name for it or choose an existing one. If you choose the existing shelf, SVN will add a new version to it, which will be visible in the Unshelve dialog, described later.</p>
+  <p>In this window we can optionally type a log message for a shelf. The log message is the same for every version within a shelf – it’s one log message for one shelf. However, it’s an optional selection and a shelf does not require a log message.</p>
+  <p>Finally, in the bottom of the window we are presented with a list of files that have been changed (in SVN terminology). We can select which files will be added to our newly created shelf/checkpoint. We do it by clicking them in the list. We can also use a button to select all.</p>
+  <p>After we complete all of the steps, the&nbsp;<strong>Shelve changes</strong>&nbsp;button will become active. When we press it, the shelf/checkpoint will be created.</p>
+  <h2>Unshelve Window</h2>
+  <p>Figure 4 presents the Unshelve window. It allows you to unshelve changes that were saved in a Shelve window. If you do not have any shelves or checkpoints, the options will be empty and you won’t be able to do anything here.</p>
+  <p><img src="/images/note-images/image3.png"><br>
+  <em>Figure 4: Unshelve window</em></p>
+  <p>If you have shelves or checkpoints, they will be visible in the first list. You can choose which one is to be unshelved. If you select a shelf, you will see all versions that were created for a selected shelf.</p>
+  <p><strong>Note:</strong>&nbsp;the shelf can be empty, it doesn’t have to contain any versions. It can also create quite a few versions, depending on how you were using the shelving mechanism. Each version has a&nbsp;<strong>date modified</strong>&nbsp;field, which tells you when the changes were made.</p>
+  <p>The next step is to select a version that is to be unshelved. When you do that, you will see files that are stored within this version. This is a read-only field; you can only see a file’s name, nothing more.</p>
+  <p>Finally, there are 2 checkboxes. One allows you to delete the entire shelf when these changes are applied, and the second lets you delete the version that was applied and all newer versions, leaving the rest of the shelf untouched. It means that if you have versions 1,2,3,4,5 of your shelf and you are applying version number 3 and checkbox Delete selected and later versions after applying is checked, versions 3,4,5 will be deleted. You do not have to use any of these checkboxes, however you can only select one of them at the most (the other one will automatically get disabled).</p>
+  <p>There are, however, some special cases when Unshelving might not be possible. That is illustrated in the Figure 5.</p>
+  <p><img src="/images/note-images/image7.png"><br>
+  <em>Fig. 5: Unshelve window</em></p>
+  <p>Sometimes, the shelf that you’ve created might cause some troubles – it might not be possible to unshelve it without generating a conflict in a working copy. Currently, shelving in SVN 1.10 doesn’t support full merge, as SVN does. It cannot generate conflicted files. That kind of situation will be detected by the application. The files that will cause a conflict are marked with a red color. A message below the table appears. You can see the patch file (for the whole shelf) and correct things. When you click cancel and Unshelve again, if you properly handled the problems, you will be able to unshelve this time.</p>
+  <p>When all the steps are completed, the&nbsp;<strong>Apply shelved changes</strong>&nbsp;button is made visible. Pressing it will apply the shelved changes onto your working copy. You will see new files in Cornerstone view for a working copy.</p>
+  <h2>Setting Environment Variables with Cornerstone</h2>
+  <p>This feature allows users to set an environment variable when using SSH Tunnels (which should then be passed to the server as a SendEnv option)</p>
+  <h2>Using the SVN Server Tab</h2>
+  <p>When using the SVN Server tab, a new SendEnv field allows the user to set any environment variable they like (in the form &lt;variable&gt;=&lt;value&gt;). In this case, the value does not necessarily have to be REPO_NAME, and provides the user the flexibility to connect to repositories that support other variables.</p>
+  <p><img src="/images/note-images/image8.png"></p>
+  <h2>Using Assembla with the Cloud Service Tab</h2>
+  <p>Remember that to use SSH with Assembla, you must generate an SSh key and update your SSH config. Check out our&nbsp;<a href="https://www.google.com/url?q=https://articles.assembla.com/using-subversion/getting-started/using-svnssh-protocol&amp;sa=D&amp;ust=1522426798065000">existing documentation</a>&nbsp;to see how. This implements the “export REPO_NAME=demo_test” portion of that documentation.</p>
+  <p>When using the Assembla Cloud Service tab, Cornerstone uses the values the user enters in the portfolio and repository fields and sets REPO_NAME=&lt;portfolio&gt;^&lt;repository&gt;.</p>
+  <p><img src="/images/note-images/image5.png"></p>
+  <h2>Some Notes to Remember:</h2>
+  <ul>
+  <li>Selecting the SSH protocol from the Assembla Cloud Service tab will disable the username/password fields as they aren’t needed</li>
+  <li>If you check out a working copy from within the app, it should connect that working copy to the proper repository based on the REPO_NAME setting.</li>
+  <li>Pasting an Assembla URL (or having one in your clipboard when you open the window) will automatically take you to the Assembla Cloud service tab.</li>
+  </ul>
+
+
+
+  <h1>Selection-Dependent Functions</h1>
+  <p>Most of Cornersone&rsquo;s browser-based functions are <span class="term">selection-dependent</span>. For example, by default the <span class="uiref">Working Copy &gt; Commit Changes&hellip;</span> function will only commit changes made to the selected items.</p>
+  <p>In order to select all the items in the working copy for commit, activate and select the working copy in the source list.</p>
+  <p>While the selection-dependent nature of the browser functions affords the user a great deal of control, it requires that the user consider which of the app&rsquo;s views is currently active, shifting the focus from the browser to the source list and back again as required.</p>
+  <p>Depending on your workflow, this may not always be appropriate.</p>
+  
+  <h2>Selection-Independent Functions</h2>
+  <p>For this reason, Cornerstone provides <span class="term">selection-independent</span> alternates for most of the browser functions.</p>
+  <p>These selection-independent functions perform the same function as their standard counterparts but the scope of the functon is always the entire working copy or repository.</p>
+  <p>For example, <span class="uiref">Working Copy &gt; Commit Changes&hellip;</span> (key equivalent <span class="key">⌘T</span>) has the selection-independent alternate <span class="uiref">Working Copy &gt; Commit All Changes&hellip;</span> (<span class="key">⌥⌘T</span>).</p>
+  <p>See <a href="menu-alternates.html">Alternate Menu Functions</a> for a list of the available alternate functions.</p>
+    
+    <div id="footer">
+      <p class="small">
+        &copy; Assembla Inc. 2007 - 2018<br/>
+        <a href="https://www.assembla.com">www.assembla.com</a>
+      </p>
+    </div>
+    
+</body>
+</html>

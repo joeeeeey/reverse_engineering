@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<link href="../../../stylesheets/style.css?ver=0.11" rel="stylesheet" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Renaming Working Copy Items</title>
+</head>
+<body>
+
+    <nav>
+      <div class="fixed-width centered">
+        <a class="logotype" href="/index.php">
+          <img class="cornerstone-logo" src="/cornerstone/images/app-icon-3@2x.png">
+          <!--<img class="assembla-shield" src="/images/assembla-shield.svg">-->
+          <span>CORNERSTONE 4</span></a>
+        <a href="/store">BUY</a>
+        <a href="/support">SUPPORT</a>
+        <a href="/blog">RELEASE NOTES</a>
+        <!--<a class="assembla-home" href="https://assembla.com" target="_blank">Assembla Home Page<img src="/cornerstone/images/back-icon.png"></a>-->
+        <a title="Assembla Home Page" class="assembla-home" href="https://assembla.com" target="_blank"><img class="assembla-logo" src="/images/assembla-logo.svg"></a>
+      </div>
+    </nav>
+
+	<div id="navbar">
+		<a id="home" href="index.html"></a>
+		<a id="next" href="deleting.html"></a>
+	</div>
+
+  <h1>Renaming Working Copy Items</h1>
+  <p>Rename items in a working copy using one of the following methods:</p>
+  <div class="task">
+  	<ol>
+  		<li>Select the item to rename and then single-click the item to start editing the name</li>
+  		<li>Select the item to rename and press the <span class="key">Return</span> (⏎) key.</li>
+  		<li>Confirm the pressing the <span class="key">Return</span> (⏎) key or clicking on another item in the browser.</li>
+  		<li>You can cancel the rename at any time by pressing the <span class="key">Escape</span> (⎋) key.</li>
+  	</ol>
+  </div>
+  <p>Subversion implements a rename as a move operation. As a result, the original file is marked for deletion and added to the working copy with the new name.</p>    
+  <h2>Undoing a Rename</h2>
+  <p>You can use the <span class="uiref">Revert</span> function to undo a rename using the following steps:</p>
+  <div class="task">
+  	<ol>
+  		<li>Select the original file which was scheduled for deletion and revert it to the BASE version using the <span class="uiref">Revert</span> function. The file is restored to the BASE version and is no longer scheduled for deletion.</li>
+  		<li>Select the file that is scheduled for addition to the repository and remove the file using the <span class="uiref">Delete</span> function.</li>
+  	</ol>
+  </div>
+  
+  <h2>Committing a Rename</h2>
+  <div class="note">
+  <p>In order to preserve the rename operation correctly in the repository&rsquo;s history, it is recommended that you commit both the deleted and added items at the same time.</p>
+  </div>
+  
+  <h2>Repairing a Broken Rename</h2>
+  <p>Generally speaking, a working copy item should always be moved or renamed using a Subversion client such as Cornerstone. This allows Subversion to track the change and ensure that the history of the item is not lost.</p>
+  <p>However, some tools may automatically rename items in a manner that the user has no control over. Such untracked renames confuse Subversion: it interprets the original item as missing and the new item as unversioned. This applies both to renames and moves (renames are just a special type of move where the original and new locations are in the same folder).</p>
+  <p>Cornerstone provides the <span class="uiref">Repair Broken Rename</span> command that can be used to fix broken renames by telling Subversion that a pair of missing and unversioned files should be interpreted as a rename.</p>
+  <p>To repair a broken rename:</p>
+  <div class="task">
+	  <ol>
+		  <li>Select both the missing and unversioned files in the working copy. The <span class="uiref">CHANGED</span> filter can be used to locate these items.</li>
+		  <li>These should be the only files selected.</li>
+		  <li>Select <span class="uiref">Repair Broken Rename</span> from the <span class="uiref">Working Copy</span> menu or click the button in the browser's toolbar:
+  			<p>
+	  			<div class="view-button">
+	  				<img src="../../../images/toolbar-repair-move.png" srcset="../../../images/toolbar-repair-move@2x.png 2x"/>
+						<p>Repair</p>
+	  			</div>
+	  		</p>
+		  </li>
+		</ol>
+	</div>
+	<div class="note">
+		<p>The title of the repair command is <span class="uiref">Repair Broken Move</span> when the missing and unversioned items are located in different folders.</p>
+	</div>
+    
+    <div id="footer">
+      <p class="small">
+        &copy; Assembla Inc. 2007 - 2018<br/>
+        <a href="https://www.assembla.com">www.assembla.com</a>
+      </p>
+    </div>
+    
+</body>
+</html>

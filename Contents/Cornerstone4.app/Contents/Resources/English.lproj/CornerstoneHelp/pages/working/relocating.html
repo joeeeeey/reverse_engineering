@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<link href="../../stylesheets/style.css?ver=0.11" rel="stylesheet" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Relocating a Working Copy</title>
+</head>
+<body>
+
+    <nav>
+      <div class="fixed-width centered">
+        <a class="logotype" href="/index.php">
+          <img class="cornerstone-logo" src="/cornerstone/images/app-icon-3@2x.png">
+          <!--<img class="assembla-shield" src="/images/assembla-shield.svg">-->
+          <span>CORNERSTONE 4</span></a>
+        <a href="/store">BUY</a>
+        <a href="/support">SUPPORT</a>
+        <a href="/blog">RELEASE NOTES</a>
+        <!--<a class="assembla-home" href="https://assembla.com" target="_blank">Assembla Home Page<img src="/cornerstone/images/back-icon.png"></a>-->
+        <a title="Assembla Home Page" class="assembla-home" href="https://assembla.com" target="_blank"><img class="assembla-logo" src="/images/assembla-logo.svg"></a>
+      </div>
+    </nav>
+
+	<div id="navbar">
+		<a id="home" href="index.html"></a>
+		<a id="next" href="cleaning.html"></a>
+	</div>
+
+	<h1>Relocating a Working Copy</h1>
+  <p>The <span class="uiref">Relocate To</span> command is used to change the URL that a working copy uses to locate the corresponding folder in the repository.</p>
+  
+  <div class="note">
+  	<p>Cornerstone tries to keep working copies&rsquo; URLs in sync with the originating repository, and will prompt to automatically relocate working copies after their repository&rsquo;s settings are edited.</p>
+  	<p>Using the <span class="uiref">Relocate To</span> function to manually relocate a working copy is an advanced topic. See the <a href="../introduction/terminology/working-copies.html#relocate">terminology</a> section for information on situations where relocation is appropriate.</p>
+  </div>
+  
+  <p>To relocate a working copy:</p>
+  
+  <div class="task">
+  	<ol>
+  		<li>
+  			<p>Select the working copy to relocate in the source list.</p>
+  			<div class="note">
+  				<p>It is not possible to relocate individual items in a working copy.</p>
+  			</div>
+  		</li>
+  		<li>
+  			<p>Select the <span class="uiref">Relocate To</span> command from the <span class="uiref">Working Copy</span> menu.</p>
+  		</li>
+  		<li>
+  			<p>Select the repository you wish to relocate to from list in the displayed submenu.</p>
+  			<div class="note">
+  				<p>You will need to <a href="../getting-started/index.html">add a new repository</a> if the required repository is not listed.</p>
+  			</div>
+  		</li>
+  	</ol>
+  </div>
+
+	<p>Cornerstone relocates the working copy to the new repository by rewriting the working copy&rsquo;s metadata. The contents of the working copy are not otherwise modified.</p>
+	<div class="note">
+		<p>The new URL is calculated from the working copy&rsquo;s location relative to the previous repository.</p>
+		<p>It is not possible to relocate a working copy to refer to a different location in the repository. Consider <a href="switching.html">switching</a> if you need to do this.</p>
+	</div>
+
+    
+    <div id="footer">
+      <p class="small">
+        &copy; Assembla Inc. 2007 - 2018<br/>
+        <a href="https://www.assembla.com">www.assembla.com</a>
+      </p>
+    </div>
+    
+</body>
+</html>
